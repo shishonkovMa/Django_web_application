@@ -1,0 +1,26 @@
+{% extends 'riddle/base.html' %}
+
+{% block content %}
+<ul class="riddle_page">
+	<li class="riddle-time"><p><strong>Дата публикации:</strong> {{riddle.time_create}}</p></li>
+{% if riddle.photo %}
+	<li class="riddle-photo"><img class="img-riddle" src="{{riddle.photo.url}}" alt="Картинка"></li>
+{% endif %}
+	<li class="riddle-content">{{riddle.content|linebreaks}}</li>
+{% if riddle.cat_id == 2 %}
+	<li class="riddle-answer"><strong>Ответ: </strong>{{riddle.answer}}</li>
+{% else %}
+	<li class="riddle-answer-form">
+		<form action="{% url 'riddle' riddle_id=riddle.pk %}" method="post">
+			{% csrf_token %}
+			<div class="form-error">{{ form.non_field_errors }}</div>
+
+			<p><strong><label class="form-label" for="{{ form.answer.id_for_label }}">{{form.answer.label}}: </label></strong>{{ form.answer }}</p>
+			<div class="form-error">{{ form.answer.errors }}</div>
+
+			<button type="submit">Отправить</button>
+		</form>
+	</li>
+{% endif %}
+</ul>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'riddle/base.html' %}
+{% load riddle_tags %}
+
+{% block content %}
+{% for r in riddles %}
+	{% if r.cat_id == 1 %}
+		{% time_diff time_create=r.time_create as td %}
+	{% else %}
+		{% time_diff time_create=r.time_create time_update=r.time_update as td%}
+	{% endif %}
+	<a href="{{ r.get_absolute_url }}">
+	<div class="riddle">
+	<table class="table-riddle" cellpadding="0" border="0">
+	{% if r.photo and r.content %}
+		<tr>
+			<td class="left-container"><img class="img-riddle list" src="{{r.photo.url}}" alt="Картинка"></td>
+			<td class="right-container" rowspan="2"><strong>{{td}}</strong></td>
+		</tr>
+		<tr>
+			<td class="left-container">{{r.content|linebreaks|truncatewords:5}}</td>
+		</tr>
+	{% elif r.photo and not r.content %}
+		<tr>
+			<td class="left-container"><img class="img-riddle list" src="{{r.photo.url}}" alt="Картинка"></td>
+			<td class="right-container"><strong>{{td}}</strong></td>
+		</tr>
+	{% else %}
+		<tr>
+			<td class="left-container">{{r.content|linebreaks|truncatewords:15}}</td>
+			<td class="right-container"><strong>{{td}}</strong></td>
+		</tr>
+	{% endif %}
+	</table>
+	</div>
+	</a>
+{% endfor %}
+
+<!-- Sidebar -->
+	<div class="sidebar">
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		<p>Справа у каждой загадки отображается время, прошедшее с момента ее публикации. Либо количество времени, ушедшее на ее решение (в этом случае есть пометка "Решено за ...").</p>
+		<p>Вы также можете публиковать свои загадки после регистрации / авторизации.</p>
+	</div>
+
+{% endblock %}

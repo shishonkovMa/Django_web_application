@@ -1,0 +1,234 @@
+html, body {
+	font-family: 'Arial';
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	color: #444;
+}
+
+
+
+
+/*--------------------------------- ШАПКА САЙТА ---------------------------------*/
+
+.header {
+	background: #513c52;
+	height: 70px;
+	position: sticky;
+	top: 0;
+}
+
+.logo {
+	background: url('../images/icon.svg') no-repeat 10px 5px;
+	width: 70px;
+	height: 60px;
+}
+
+ul.mainmenu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 60px;
+	color: #fdc073;
+	font-size: 20px;
+	overflow: hidden;
+}
+
+ul.mainmenu li {
+	float: left;
+	margin: 24px 40px 0 30px;
+}
+
+ul.mainmenu li.logo {margin: 0;}
+
+ul.mainmenu li.last {float: right;}
+
+ul.mainmenu li a {
+	color: #fdc073;
+	text-decoration: none;
+}
+
+ul.mainmenu li a:hover {
+	color: #FDA83D;
+}
+
+ul.mainmenu li.selected {color: #fff}
+ul.mainmenu li.last.selected {color: #fff}
+
+.table-page {
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+
+
+
+
+/*--------------------------------- КОНТЕНТ ---------------------------------*/
+
+div.content {
+	padding: 0 0 7% 0;
+	width: 50%;
+	height: 100%;
+	margin: 0 0 0 25%;
+}
+
+div.riddle {
+	display: inline-block;
+	margin: 1% 1% -0.5% -3%;
+	width: 100%;
+	height: auto;
+	background: #b2adb3;
+	color: black;
+	border-radius: 5px;
+}
+
+div.riddle:hover {
+	display: inline-block;
+	margin: 1% 1% -0.5% -3%;
+	width: 100%;
+	height: auto;
+	background: #b2adb3;
+	color: black;
+	border-radius: 5px;
+	transform: scale(1.1);
+	box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
+}
+
+table.table-riddle {
+	border: 0px;
+	width: 100%;
+	height: auto;
+}
+
+.left-container {
+	width: 45%;
+	text-align: center;
+	height: auto;
+	border-radius: 5px;
+}
+
+.right-container {
+	width: auto;
+	margin-left: 45%;
+	/*border-left: 1px solid #513c52;*/
+	text-align: center;
+	background: #ccc;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+img.img-riddle.list {
+	width: 100%;
+	height: auto;
+	border-radius: 3px;
+}
+
+ul.riddle_page {
+	margin-left: -10%;
+	padding: 10% 10% 10% 10%;
+	display: grid;
+	width: 90%;
+	height: auto;
+	background: #ccc;
+	list-style: none;
+	border-radius: 5px;
+}
+
+li.riddle-time {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+li.riddle-photo {
+	grid-column: 1;
+	grid-row: 2;
+}
+
+li.riddle-content {
+	grid-column: 1;
+	grid-row: 3;
+}
+li.riddle-answer {
+	grid-column: 1;
+	grid-row: 4;
+}
+
+li.riddle-answer-form {
+	grid-column: 1;
+	grid-row: 4;
+}
+
+
+
+
+/*--------------------------------- Загадка ---------------------------------*/
+
+
+img.img-riddle {
+	max-width: 400px;
+	height: auto;
+	float: left;
+	padding: 0 0 0 0;
+	border-radius: 5px;
+}
+
+
+
+
+/*------------------------ Форма добавления загадок ------------------------*/
+
+.form-label {
+    display: inline-block;
+    min-width: 150px;
+    vertical-align: top;
+}
+
+.form-error ul {
+    list-style: none;
+    padding: 0;
+    color: #CC0000;
+}
+
+
+
+
+/*--------------------------- Форма регистрации ---------------------------*/
+
+.form-input {
+	width: 300px;
+	font-size: 15px;
+}
+
+
+
+/*--------------------------- Сообщение пользователю ---------------------------*/
+
+.sidebar {
+  border-style: 1px solid;
+  width: 200px;
+  position: fixed;
+  top: 80px;
+  left: 4%;
+  height: 51%;
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.sidebar p {
+	padding-left: 10px;
+	margin-top: 6px;
+	padding-right: 8px;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 26px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}

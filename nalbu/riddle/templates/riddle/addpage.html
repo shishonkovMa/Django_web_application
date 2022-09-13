@@ -1,0 +1,22 @@
+{% extends 'riddle/base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+
+<form action="{% url 'addriddle' %}" method="post" enctype="multipart/form-data">
+	<!-- атрибут "action" нужен для перенаправления на определенную страницу 
+		 если не указать, то будет таже самая страница-->
+	{% csrf_token %} <!-- служит для защиты от csrf-атак | создание формы по внешнему виду создать злоумышленник на своем сайте-->
+	<!-- {{ form.as_p }} позволяет отображать все поля формы как абзацы -->
+
+	<div class="form-error">{{ form.non_field_errors }}</div> <!-- отображение ошибок, не связанных с полями -->
+
+	{% for f in form %}
+		<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+		<div class="form-error">{{ f.errors }}</div>
+	{% endfor %}
+
+	<button type="submit">Добавить</button>
+</form>
+
+{% endblock %}
