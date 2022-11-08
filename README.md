@@ -1,3 +1,3 @@
-# Вэб-приложение "Nalbu" для решения и публикации загадок.
+# Web application "Nalbu" for solving and publishing riddles.
 
-Приложение реализовано при помощи фреймворка Django 4.
+The application is implemented using the Django 4 framework.
